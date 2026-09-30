@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: var(--geist-sans);
+}
+
+@layer base {
+    body {
+        @apply font-sans lowercase antialiased;
+    }
+}
