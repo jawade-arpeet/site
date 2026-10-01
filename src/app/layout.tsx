@@ -13,7 +13,11 @@ const geistSans = Geist({
 export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
         <html lang="en" className={geistSans.variable}>
-            <body>{children}</body>
+            <body>
+                <main className="flex min-h-dvh w-full flex-col items-center px-5 py-8 sm:px-8">
+                    {children}
+                </main>
+            </body>
         </html>
     );
 }
