@@ -1,11 +1,80 @@
 @import "tailwindcss";
 
+:root {
+    --background-primary: hsla(0, 0%, 0%, 1);
+    --foreground-primary: hsla(0, 0%, 93%, 1);
+    --foreground-secondary: hsla(0, 0%, 53%, 1);
+}
+
 @theme {
+    /* font */
     --font-sans: var(--geist-sans);
+
+    /* color */
+    --color-background-primary: var(--background-primary);
+    --color-foreground-primary: var(--foreground-primary);
+    --color-foreground-secondary: var(--foreground-secondary);
+}
+
+@utility heading-20 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+@utility heading-32 {
+    font-size: clamp(1.75rem, 4vw, 2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
+
+@utility copy-16 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.55;
+}
+
+@utility copy-14 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4286;
+}
+
+@utility link-14 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4286;
+    color: var(--foreground-secondary);
+
+    &:hover {
+        color: var(--foreground-primary);
+        text-decoration-line: underline;
+        text-underline-offset: 0.2em;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--foreground-primary);
+        outline-offset: 2px;
+    }
+}
+
+@utility page-frame {
+    width: 100%;
+    max-width: 36rem;
 }
 
 @layer base {
     body {
-        @apply font-sans lowercase antialiased;
+        @apply bg-background-primary text-foreground-primary font-sans lowercase antialiased;
+    }
+
+    body::selection {
+        @apply bg-foreground-primary text-background-primary;
+    }
+
+    a {
+        @apply rounded-sm;
     }
 }
